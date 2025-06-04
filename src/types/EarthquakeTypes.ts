@@ -26,5 +26,7 @@ export type EarthquakeData = {
 export type EarthquakeContextType = {
   data: EarthquakeData[] | undefined;
   isLoading: boolean;
-  error: unknown;
 }
+
+
+
