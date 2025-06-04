@@ -19,7 +19,7 @@ export const EarthquakeDataProvider = ({ children }: { children: React.ReactNode
         return <EmptyScatterPlot isLoading={isLoading} />;
     }
     return (
-        <earthquakeContext.Provider value={{ data, isLoading }}>
+        <earthquakeContext.Provider value={data}>
             {children}
         </earthquakeContext.Provider>
     )

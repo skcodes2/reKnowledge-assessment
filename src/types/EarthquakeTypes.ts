@@ -23,10 +23,7 @@ export type EarthquakeData = {
   magSource: string;
 }
 
-export type EarthquakeContextType = {
-  data: EarthquakeData[] | undefined;
-  isLoading: boolean;
-}
+export type EarthquakeContextType = EarthquakeData[]
 
 
 

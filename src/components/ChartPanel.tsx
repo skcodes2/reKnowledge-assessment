@@ -10,10 +10,7 @@ export default function ChartPanel() {
   const [xAxisSelection, setXAxisSelection] = useState("depth");
   const [yAxisSelection, setYAxisSelection] = useState("mag");
   const { setPaginatedData } = usePaginatedEarthquakes();
-  const {data} = useEarthquakeContext();
-  if(!data){
-    return <div className="text-white">No data available.</div>;
-  }
+  const data = useEarthquakeContext();
 
   const pageSize = 200;
   const maxPages = useMemo(() => Math.ceil(data.length / pageSize), [data]);
@@ -30,10 +27,10 @@ export default function ChartPanel() {
   }, [reducedData, setPaginatedData]);
 
   return (
-    <div className="bg-black font-body p-6 shadow-lg">
+    <div className="bg-black font-body p-6  shadow-lg">
       <h2 className="text-3xl font-header text-white mb-2">Earthquake Scatter Plot</h2>
 
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-4 sticky top-0 bg-black z-10">
         <div className="flex gap-4">
           <AxisSelector label="X-Axis" setFunction={setXAxisSelection} value={getFullName(xAxisSelection)} />
           <AxisSelector label="Y-Axis" setFunction={setYAxisSelection} value={getFullName(yAxisSelection)}/>
