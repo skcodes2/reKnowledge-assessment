@@ -1,4 +1,6 @@
 # 🌍 Earthquake Data Visualization
+![image](https://github.com/user-attachments/assets/21024450-02e4-48f6-81cb-969aba2518c2)
+
 
 ## 🚀 Features
 
