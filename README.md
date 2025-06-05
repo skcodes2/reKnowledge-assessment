@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# 🌍 Earthquake Data Visualization
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Features
 
-Currently, two official plugins are available:
+### 📊 Interactive Chart + Table
+- View earthquake data as a scatter plot and a tabular list
+- Click or hover a row to highlight the matching point on the chart
+- Click a chart point to filter + scroll to its corresponding row in the table
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔄 Two-Way Interactivity
+- Row click → highlight chart point
+- Chart click → filter table to relevant row
 
-## Expanding the ESLint configuration
+### 🧠 State Handling Approaches
+- **Props pattern** for basic prop drilling
+- **React Context API** to manage selected earthquake globally
+- **Zustand** store for global state like filtered, paginated, and selected data
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ➕ Additional Features
+- Pagination (200 items per page)
+- Filters (magnitude & depth ranges)
+- Sorting (magnitude & depth in both directions)
+- Responsive layout with Tailwind CSS
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 External Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Package                   | Purpose |
+|---------------------------|---------|
+| `react`, `react-dom`      | Core React app |
+| `zustand`                 | State management store |
+| `@tanstack/react-query`   | Efficient data fetching |
+| `@tanstack/react-router`  | App routing and navigation |
+| `papaparse`               | CSV parsing for earthquake data |
+| `recharts`                | Interactive data visualization |
+| `@tailwindcss/vite`       | Tailwind setup with Vite |
+| `pnpm`                    | Package manager |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## 🛠 Setup Instructions
+
+```bash
+git clone https://github.com/skcodes2/reKnowledge-assessment.git
+
+cd reKnowledge-assessment
+
+npm install 
+
+npm run dev
+
+
