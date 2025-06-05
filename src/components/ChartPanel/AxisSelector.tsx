@@ -1,4 +1,4 @@
-import { axisOptions, getKeyFromLabel } from "../utils/NameConversion";
+import { axisOptions, getKeyFromLabel } from "../../utils/NameConversion";
 
 type AxisSelectorProps = {
   label: string;

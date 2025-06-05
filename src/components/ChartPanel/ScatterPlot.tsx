@@ -1,4 +1,4 @@
-import type { ScatterPlotProps } from '../types/ScatterPlotType';
+import type { ScatterPlotProps } from '../../types/ScatterPlotType';
 import {
   ScatterChart,
   Scatter,
@@ -10,32 +10,38 @@ import {
   Legend,
 } from 'recharts';
 
-
+import { usePaginatedEarthquakes } from '../../hooks/usePaginatedEarthquake';
 
 const CustomCircle = (props: any) => {
-  const { cx, cy, r = 5, fill = '#FF8C00' } = props;
+  const { cx, cy, r = 6, payload } = props;
+  const fill = payload.fill; // fallback color
   return (
     <circle
       cx={cx}
       cy={cy}
       r={r}
       fill={fill}
-      
       strokeWidth={1.5}
-      className=" hover:scale-1.2 hover:cursor-pointer"
+      className="hover:scale-1.2 hover:cursor-pointer"
     />
   );
 };
 
+
 export default function ScatterPlot({
-  data,
   xAxisKey,
   xAxisLabel,
   yAxisKey,
   yAxisLabel,
 }: ScatterPlotProps) {
+  const { paginatedData: data, setFilteredData } = usePaginatedEarthquakes();
+
   const handleClick = (pointData: any) => {
-    console.log('Clicked data point:', pointData);
+    const filitered = data.filter((item => {
+      return item.depth === pointData.payload.depth && item.mag === pointData.payload.mag;
+    }));
+    setFilteredData(filitered);
+    window.scrollTo({ top: 200, behavior: 'smooth' });
   };
 
   return (
@@ -51,13 +57,11 @@ export default function ScatterPlot({
             contentStyle={{ backgroundColor: '#111', borderColor: '#FFD700', color: 'white', cursor: 'pointer' }}
             itemStyle={{ color: '#FFD700' , cursor: 'pointer' }}
             cursor={{ strokeDasharray: '3 3', cursor: 'pointer' }}
-            
           />
           <Legend wrapperStyle={{ color: '#FFD700' }} />
           <Scatter
             name="Earthquakes"
             data={data}
-            fill="#FF8C00"
             onClick={handleClick}
             shape={<CustomCircle />}
           />

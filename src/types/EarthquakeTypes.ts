@@ -21,6 +21,7 @@ export type EarthquakeData = {
   status: string;
   locationSource: string;
   magSource: string;
+  fill: string;
 }
 
 export type EarthquakeContextType = EarthquakeData[]

@@ -1,4 +1,4 @@
- const numericFieldLabels: Record<string, string> = {
+export const numericFieldLabels: Record<string, string> = {
   latitude: "Latitude",
   longitude: "Longitude",
   depth: "Depth (km)",
